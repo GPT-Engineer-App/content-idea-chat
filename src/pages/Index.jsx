@@ -25,7 +25,20 @@ const Index = () => {
   const chatBgColor = useColorModeValue("white", "gray.800");
 
   return (
-    <Flex direction="column" align="center" justify="center" minH="100vh" p={4}>
+    <Flex
+      direction="column"
+      align="center"
+      justify="center"
+      minH="100vh"
+      p={4}
+      sx={{
+        "@keyframes fadeIn": {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
+        animation: "fadeIn 1s ease-in-out",
+      }}
+    >
       <VStack spacing={8} w="full" maxW="lg">
         <Box w="full" p={5} shadow="md" borderWidth="1px" borderRadius="lg" overflow="hidden">
           <Image src="https://images.unsplash.com/photo-1613633043968-e4ffc82d241b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxjb250ZW50JTIwY3JlYXRpb258ZW58MHx8fHwxNzE0NDU5OTc5fDA&ixlib=rb-4.0.3&q=80&w=1080" borderRadius="lg" />
@@ -48,8 +61,8 @@ const Index = () => {
             ))}
           </VStack>
           <Flex mt={4}>
-            <input value={inputValue} onChange={handleInputChange} placeholder="Type your message here..." style={{ flexGrow: 1, padding: "8px", marginRight: "8px", borderRadius: "8px", border: "1px solid lightgray" }} />
-            <Button colorScheme="blue" onClick={sendMessage}>
+            <input value={inputValue} onChange={handleInputChange} placeholder="Type your message here..." style={{ flexGrow: 1, padding: "8px", marginRight: "8px", borderRadius: "8px", border: "1px solid lightgray", scrollBehavior: "smooth" }} />
+            <Button colorScheme="blue" onClick={sendMessage} _hover={{ transform: "scale(1.05)" }} _active={{ transform: "scale(0.95)" }}>
               <FaComments />
             </Button>
           </Flex>
